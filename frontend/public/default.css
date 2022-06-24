@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;400;500;600&display=swap');
+/* font-family: 'Big Shoulders Display', cursive; */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&display=swap');
+/* font-family: 'IBM Plex Mono', monospace; */
+
+:root {
+  /* - Shades - */
+  --dark: #011023;
+  --blue: #001E46;
+  --gray: #708090;
+  --light: #F3F5F7;
+  --white: #FFFFFF;
+  /* Default */
+  --action: #78FFD6;
+  /* - Colors - */
+  --red: #FF058C;
+  --purple: #7A69FF;
+}
+
+* {
+	box-sizing: border-box;
+	outline: none;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+	color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+blockquote {
+  margin: 0;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}

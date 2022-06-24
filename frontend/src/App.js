@@ -1,8 +1,16 @@
-import "./styles/App.css";
+import React from "react";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
 
-function App() {
+const App = () => {
 	return (
-		<p>Hello world!</p>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/about" element={<About />} />
+			</Routes>
+		</BrowserRouter>
 	);
 }
 

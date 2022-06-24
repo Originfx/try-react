@@ -1,0 +1,68 @@
+/* // KEYLAYOUT ////////////////////////////////////////////////// */
+.keylayout {
+    margin: 20px 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.keylayout label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.875em;
+}
+
+.keylayout__input {
+    display: flex;
+    justify-content: space-between;
+    color: var(--gray);
+    border: 2px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+    transition: .5s;
+}
+
+.keylayout__input-panel {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 15px;
+    border-right: 2px solid rgba(255,255,255,0.1);
+}
+
+.keylayout__input-panel i {
+    min-width: 20px;
+    background: var(--light);
+    --size: 20px;
+}
+
+.keylayout__input-panel i:last-child {
+    --size: 23px;
+}
+
+.keylayout__input textarea {
+    overflow: hidden;
+    width: 100%;
+    resize: none;
+    background-color: var(--dark);
+    color: var(--gray);
+    padding: 15px 20px;
+    font-size: 0.875em;
+    line-height: 16px;
+    border: none;
+    transition: .5s;
+}
+
+.keylayout__input textarea:focus {
+    background-color: var(--blue);
+    color: var(--action);
+    text-shadow: 0 0 10px rgba(120, 255, 214, 0.5);
+}
+
+.keylayCopy:hover {
+    cursor: pointer;
+    -webkit-animation: 10s mixing-bg ease infinite;
+}
+
+/* /////////////////////////////////////////////////////////////// */

@@ -1,0 +1,6 @@
+#dateTime {
+    font-size: 0.750em;
+    font-weight: 400;
+    color: var(--action);
+    text-shadow: 0 0 10px rgba(120, 255, 214, 0.5);
+}

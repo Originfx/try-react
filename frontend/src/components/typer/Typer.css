@@ -1,0 +1,103 @@
+/* // TYPER ////////////////////////////////////////////////////// */
+.typer {
+    margin: 20px 0;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.typer__word {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.typer__input {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: var(--gray);
+    border: 2px solid rgba(255,255,255,0.1);
+    margin-bottom: 20px;
+    transition: .5s;
+}
+
+.typer__input i {
+    min-width: 20px;
+    background: var(--light);
+    --size: inherit;
+}
+
+.typer input {
+    text-align: center;
+    width: 100%;
+    color: var(--white);
+    background-color: transparent;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    border: none;
+    border-left: 2px solid rgba(255,255,255,0.1);
+    border-right: 2px solid rgba(255,255,255,0.1);
+}
+
+.typer__score {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.typer__score label {
+    width: 100%;
+    text-align: center;
+}
+
+.typer__score label:first-child {
+    text-align: left;
+}
+
+.typer__score label:last-child {
+    text-align: right;
+}
+
+.typer textarea {
+    overflow: hidden;
+    width: 100%;
+    resize: none;
+    background-color: var(--blue);
+    color: var(--action);
+    text-shadow: 0 0 10px rgba(120, 255, 214, 0.5);
+    padding: 15px 20px;
+    font-size: 0.750em;
+    line-height: 16px;
+    border: none;
+    transition: .5s;
+}
+
+.typer textarea:disabled {
+    color: var(--gray);
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    text-shadow: unset;
+}
+
+.typer__limit {
+    color: var(--gray);
+    line-height: 30px;
+    text-align: right;
+    font-size: 0.750em;
+}
+
+.typer__word-red {
+    color: var(--red);
+}
+
+.typerRestart:hover {
+    cursor: pointer;
+    -webkit-animation: 10s mixing-bg ease infinite;
+            animation: 10s mixing-bg ease infinite;
+}
+
+/* /////////////////////////////////////////////////////////////// */

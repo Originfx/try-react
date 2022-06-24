@@ -1,0 +1,241 @@
+body {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--white);
+    background-color: var(--dark);
+    cursor: default;
+}
+
+a {
+    color: inherit;
+}
+
+a:hover {
+    -webkit-animation: 10s mixing-cl ease infinite;
+            animation: 10s mixing-cl ease infinite;
+}
+
+.content {
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* // LOGO /////////////////////////////////////////////////////// */
+.logo {
+    position: relative;
+    font-family: 'Big Shoulders Display', cursive;
+}
+
+.logo ul {
+    font-size: 1.5em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.logo li:last-child {
+    font-size: 0.750em;
+    font-weight: 400;
+    color: var(--action);
+    text-shadow: 0 0 10px rgba(120, 255, 214, 0.5);
+}
+
+.logo__line {
+    height: 2px;
+    background-color: rgba(255,255,255,0.2);
+    /* background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.1) 100%); */
+    margin-bottom: 20px;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+/* // CONSOLE //////////////////////////////////////////////////// */
+.console {
+    position: relative;
+}
+
+.console ul {
+    color: var(--gray);
+    font-size: 0.750em;
+    line-height: 20px;
+}
+
+.console ul li:before {
+    content: '>';
+    margin-right: 5px;
+}
+
+.console a {
+    color: var(--white);
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+/* // TOOLS ////////////////////////////////////////////////////// */
+.tools {
+    display: flex;
+    padding: 20px;
+    color: var(--white);
+    border: 2px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+    margin: 20px 0;
+    transition: .5s;
+}
+
+.tools:hover {
+    color: inherit;
+    padding: 28px 20px;
+    border-color: rgba(120,255,214,0.5);
+    -webkit-animation: 10s borders ease infinite;
+            animation: 10s borders ease infinite;
+}
+
+.tools__icon {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    margin-right: 20px;
+    border-right: 2px solid rgba(255,255,255,0.1);
+}
+
+.tools i {
+    background: var(--light);
+    --size: 24px;
+}
+
+.tools span h3 {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 24px;
+    text-transform: uppercase;
+}
+
+.tools span p {
+    color: var(--gray);
+    font-size: 0.750em;
+    line-height: 20px;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+/* // FOOTER ///////////////////////////////////////////////////// */
+.footer {
+    color: var(--gray);
+    line-height: 30px;
+    text-align: center;
+    font-size: 0.750em;
+}
+
+.footer__logo svg {
+    fill: rgba(255,255,255,0.1);
+    height: 40px;
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+/* // EFFECTS //////////////////////////////////////////////////// */
+@-webkit-keyframes borders {
+    10% {
+        border-color: rgba(120,255,214,0.5);
+    }
+    50% {
+        border-color: rgba(255,5,140,0.5);
+    }
+    80% {
+        border-color: rgba(122,105,255,0.5);
+    }
+}
+
+@keyframes borders {
+    10% {
+        border-color: rgba(120,255,214,0.5);
+    }
+    50% {
+        border-color: rgba(255,5,140,0.5);
+    }
+    80% {
+        border-color: rgba(122,105,255,0.5);
+    }
+}
+
+@-webkit-keyframes mixing-cl {
+    10% {
+        color: var(--action);
+    }
+    50% {
+        color: var(--red);
+    }
+    80% {
+        color: var(--purple);
+    }
+}
+
+@keyframes mixing-cl {
+    10% {
+        color: var(--action);
+    }
+    50% {
+        color: var(--red);
+    }
+    80% {
+        color: var(--purple);
+    }
+}
+
+@-webkit-keyframes mixing-bg {
+    10% {
+        background-color: var(--action);
+    }
+    50% {
+        background-color: var(--red);
+    }
+    80% {
+        background-color: var(--purple);
+    }
+}
+
+@keyframes mixing-bg {
+    10% {
+        background-color: var(--action);
+    }
+    50% {
+        background-color: var(--red);
+    }
+    80% {
+        background-color: var(--purple);
+    }
+}
+
+/* /////////////////////////////////////////////////////////////// */
+
+/* // SELECTION ////////////////////////////// */
+::-moz-selection {background: var(--action); color:var(--blue);}
+::selection {background: var(--action); color:var(--blue);}
+::-moz-selection {background: var(--action); color:var(--blue);}
+::-webkit-selection {background: var(--action); color:var(--blue);}
+
+/* /////////////////////////////////////////// */
+
+/* --  OTHER DEVICES  --  */
+/* --  EXTRA LARGE - xl  --  */
+@media (min-width: 1321px) {}
+
+/* --  LARGE - lg  --  */
+@media (min-width: 1211px) and (max-width: 1320px) {}
+
+/* --  MEDIUM - md  --  */
+@media (min-width: 961px) and (max-width: 1210px) {}
+
+/* --  SMALL - sm  --  */
+@media (min-width: 461px) and (max-width: 960px) {}
+
+/* --  EXTRA SMALL - xs  --  */
+@media (max-width: 460px) {
+    .content { padding-top: 20px; }
+    .tools { padding: 10px 20px; }
+    .tools i { --size: 20px; }
+    .tools span h3 { line-height: 20px; }
+    .urlink__history p { -moz-column-count: 1; column-count: 1; }
+}
