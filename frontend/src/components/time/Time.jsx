@@ -2,7 +2,6 @@ import React from "react";
 import "../time/Time.css";
 
 const Time = () => {
-    
     let [time, setTime] = React.useState(0);
     
     // Добавить 0 в начало, если меньше 10 секунд/минут
@@ -10,11 +9,12 @@ const Time = () => {
         return (a < 10 ? '0' : '') + a;
     }
 
-    // Отобразить и стилизировать время
+    // Отобразить время
     const timer = () => {
         let currentTime = new Date();
         let hours = currentTime.getUTCHours() + 3;
         let minutes = addZero( currentTime.getUTCMinutes() );
+        let seconds = addZero( currentTime.getUTCSeconds() );
 
         let ampm = "AM";
 
@@ -23,9 +23,17 @@ const Time = () => {
             ampm = "PM";
         }
 
-        // Отобразить время на сайте
-        setTime(addZero(hours) + ":" + minutes + " " + ampm);
+        // Обновить время
+        setTime(addZero(hours) + ":" + minutes + ":" + seconds + " " + ampm);
     }
+
+    React.useEffect(() => {
+        timer();
+    }, [])
+
+    setInterval(() => {
+        timer();
+    }, 1000)
 
 	return (
 		<span>{time}</span>
