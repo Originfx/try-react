@@ -1,9 +1,9 @@
 import React from "react";
-import PostItem from "../blog/PostItem";
+import PostItem from "./item";
 
-import "../blog/Post.css";
+import "./style.css";
 
-const Blog = () => {
+const Blog1 = () => {
 	let [items, setItems] = React.useState([
 		{id: 1, title: "DSD vs DSF vs DFF Files Audio", content: "DSD (Direct Stream Digital) is one bit audio format for high resolution music. The format based on sigma delta modulation."},
 		{id: 2, title: "What is Audio Formats DSD 2.8", content: "DSD (Direct Stream Digital) 1-bit audio format. It may be packed to audio files with extensions."},
@@ -13,13 +13,15 @@ const Blog = () => {
 	]);
 
 	return (
-		<div className="blog">
-			<h2>Список постов:</h2>
-			{items.map(el => 
-				<PostItem item={el} key={el.id}/>
-			)}
-		</div>
+		<section className="blog">
+			<div className="wrapper">
+				<h2>Список постов:</h2>
+				{items.map(el => 
+					<PostItem item={el} key={el.id}/>
+				)}
+			</div>
+		</section>
 	);
 }
 
-export default Blog;
+export default Blog1;

@@ -1,5 +1,5 @@
 import React from "react";
-import "../time/Time.css";
+import "./style.css";
 
 const Time = () => {
     let [time, setTime] = React.useState(0);
@@ -29,7 +29,7 @@ const Time = () => {
 
     React.useEffect(() => {
         timer();
-    }, [])
+    })
 
     setInterval(() => {
         timer();

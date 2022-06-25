@@ -14,12 +14,22 @@ a:hover {
             animation: 10s mixing-cl ease infinite;
 }
 
-.content {
-    justify-content: center;
+/* // APP //////////////////////////////////// */
+.app {
     padding-top: 50px;
 }
 
-/* // LOGO /////////////////////////////////////////////////////// */
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+/* /////////////////////////////////////////// */
+
+/* // LOGO /////////////////////////////////// */
 .logo {
     position: relative;
     font-family: 'Big Shoulders Display', cursive;
@@ -33,6 +43,8 @@ a:hover {
     justify-content: space-between;
     align-items: flex-end;
     padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    margin-bottom: 20px;
 }
 
 .logo li:last-child {
@@ -42,16 +54,9 @@ a:hover {
     text-shadow: 0 0 10px rgba(120, 255, 214, 0.5);
 }
 
-.logo__line {
-    height: 2px;
-    background-color: rgba(255,255,255,0.2);
-    /* background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0.1) 100%); */
-    margin-bottom: 20px;
-}
+/* /////////////////////////////////////////// */
 
-/* /////////////////////////////////////////////////////////////// */
-
-/* // CONSOLE //////////////////////////////////////////////////// */
+/* // CONSOLE //////////////////////////////// */
 .console {
     position: relative;
 }
@@ -71,9 +76,9 @@ a:hover {
     color: var(--white);
 }
 
-/* /////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////// */
 
-/* // TOOLS ////////////////////////////////////////////////////// */
+/* // TOOLS ////////////////////////////////// */
 .tools {
     display: flex;
     padding: 20px;
@@ -118,9 +123,9 @@ a:hover {
     line-height: 20px;
 }
 
-/* /////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////// */
 
-/* // FOOTER ///////////////////////////////////////////////////// */
+/* // FOOTER ///////////////////////////////// */
 .footer {
     color: var(--gray);
     line-height: 30px;
@@ -133,9 +138,9 @@ a:hover {
     height: 40px;
 }
 
-/* /////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////// */
 
-/* // EFFECTS //////////////////////////////////////////////////// */
+/* // EFFECTS //////////////////////////////// */
 @-webkit-keyframes borders {
     10% {
         border-color: rgba(120,255,214,0.5);
@@ -208,7 +213,7 @@ a:hover {
     }
 }
 
-/* /////////////////////////////////////////////////////////////// */
+/* /////////////////////////////////////////// */
 
 /* // SELECTION ////////////////////////////// */
 ::-moz-selection {background: var(--action); color:var(--blue);}
@@ -217,25 +222,3 @@ a:hover {
 ::-webkit-selection {background: var(--action); color:var(--blue);}
 
 /* /////////////////////////////////////////// */
-
-/* --  OTHER DEVICES  --  */
-/* --  EXTRA LARGE - xl  --  */
-@media (min-width: 1321px) {}
-
-/* --  LARGE - lg  --  */
-@media (min-width: 1211px) and (max-width: 1320px) {}
-
-/* --  MEDIUM - md  --  */
-@media (min-width: 961px) and (max-width: 1210px) {}
-
-/* --  SMALL - sm  --  */
-@media (min-width: 461px) and (max-width: 960px) {}
-
-/* --  EXTRA SMALL - xs  --  */
-@media (max-width: 460px) {
-    .content { padding-top: 20px; }
-    .tools { padding: 10px 20px; }
-    .tools i { --size: 20px; }
-    .tools span h3 { line-height: 20px; }
-    .urlink__history p { -moz-column-count: 1; column-count: 1; }
-}
