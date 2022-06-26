@@ -1,38 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
+// Добавить 0 в начало, если меньше 10 секунд/минут
+const addZero = (a) => {
+    return (a < 10 ? '0' : '') + a;
+}
+
+// Отобразить время
+const timer = () => {
+    let currentTime = new Date();
+    let hours = currentTime.getUTCHours() + 3;
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    let minutes = addZero( currentTime.getUTCMinutes() );
+    let seconds = addZero( currentTime.getUTCSeconds() );
+
+    let ampm = hours > 12 ? 'AM' : 'PM';
+
+    // Обновить время
+    return addZero(hours) + ":" + minutes + ":" + seconds + " " + ampm;
+}
+
 const Time = () => {
-    let [time, setTime] = React.useState(0);
-    
-    // Добавить 0 в начало, если меньше 10 секунд/минут
-    const addZero = (a) => {
-        return (a < 10 ? '0' : '') + a;
-    }
+    let [time, setTime] = useState(0);
 
-    // Отобразить время
-    const timer = () => {
-        let currentTime = new Date();
-        let hours = currentTime.getUTCHours() + 3;
-        let minutes = addZero( currentTime.getUTCMinutes() );
-        let seconds = addZero( currentTime.getUTCSeconds() );
-
-        let ampm = "AM";
-
-        if (hours > 12) {
-            hours -= 12;
-            ampm = "PM";
-        }
-
-        // Обновить время
-        setTime(addZero(hours) + ":" + minutes + ":" + seconds + " " + ampm);
-    }
-
-    React.useEffect(() => {
-        timer();
-    })
+    useEffect(() => {
+        setTime(timer());
+    }, [time])
 
     setInterval(() => {
-        timer();
+        setTime(timer());
     }, 1000)
 
 	return (

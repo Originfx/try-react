@@ -1,5 +1,4 @@
 const PostItem = (props) => {
-
 	return (
 		<div className="post__item">
 			<strong>{props.item.id}. {props.item.title}</strong>
