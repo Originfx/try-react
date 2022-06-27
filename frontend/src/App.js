@@ -2,7 +2,6 @@ import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 import Panel from "./partials/Panel";
-import Console from "./partials/Console";
 import Footer from "./partials/Footer";
 
 import Home from "./pages/Home";
@@ -16,7 +15,6 @@ const App = () => {
 		<BrowserRouter>
 			<div className="app">
 				<Panel />
-				<Console />
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/blog" element={<Blog />} />

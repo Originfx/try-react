@@ -3,45 +3,56 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
 	return (
-		<section>
-			<div className="wrapper">
-				<Link to="/blog">
-					<div className="tools">
-						<div className="tools__icon">
-							<i className='icon icon-list'></i>
-						</div>
-						<span>
-							<h3>Blog</h3>
-							<p>Блог пользователя</p>
-						</span>
-					</div>
-				</Link>
+		<>
+			<section className="console">
+				<div className="wrapper">
+					<ul>
+						<li>Первый опыт работы с React.</li>
+						<li>Коллекция веб-инструментов.</li>
+					</ul>
+				</div>
+			</section>
 
-				<Link to="/typer">
-					<div className="tools">
-						<div className="tools__icon">
-							<i className='icon icon-list'></i>
+			<section>
+				<div className="wrapper">
+					<Link to="/blog">
+						<div className="tools">
+							<div className="tools__icon">
+								<i className='icon icon-list'></i>
+							</div>
+							<span>
+								<h3>Blog</h3>
+								<p>Блог пользователя</p>
+							</span>
 						</div>
-						<span>
-							<h3>Typing Game</h3>
-							<p>Проверка скорости набора текста</p>
-						</span>
-					</div>
-				</Link>
+					</Link>
+					
+					<Link to="/typer">
+						<div className="tools">
+							<div className="tools__icon">
+								<i className='icon icon-list'></i>
+							</div>
+							<span>
+								<h3>Typing Game</h3>
+								<p>Проверка скорости набора текста</p>
+							</span>
+						</div>
+					</Link>
 
-				<Link to="/keylayout">
-					<div className="tools">
-						<div className="tools__icon">
-							<i className='icon icon-list'></i>
+					<Link to="/keylayout">
+						<div className="tools">
+							<div className="tools__icon">
+								<i className='icon icon-list'></i>
+							</div>
+							<span>
+								<h3>Смена раскладки</h3>
+								<p>Перевод текста в другую раскладку</p>
+							</span>
 						</div>
-						<span>
-							<h3>Смена раскладки</h3>
-							<p>Перевод текста в другую раскладку</p>
-						</span>
-					</div>
-				</Link>
-			</div>
-		</section>
+					</Link>
+				</div>
+			</section>
+		</>
 	);
 }
 
