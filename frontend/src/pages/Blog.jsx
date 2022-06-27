@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Source from '../components/blog/';
+import Source from '../components/Blog';
 
 const Blog = () => {
 	return (
