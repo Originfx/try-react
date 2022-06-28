@@ -1,5 +1,5 @@
 /* // TIME /////////////////////////////////// */
-#dateTime {
+.time {
     font-size: 0.750em;
     font-weight: 400;
     color: var(--action);

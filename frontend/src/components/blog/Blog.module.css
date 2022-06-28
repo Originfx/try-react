@@ -1,8 +1,6 @@
 /* // BLOG /////////////////////////////////// */
-.post {
-    color: gray;
-    padding: 15px;
-    border: 1px solid silver;
+.blog {
+    margin: 20px 0;
 }
 
 /* /////////////////////////////////////////// */

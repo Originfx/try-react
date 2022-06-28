@@ -1,19 +1,29 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
-import PostItem from "./BlogPost";
+import PostService from "../../API/PostService";
+import BlogPost from "./BlogPost";
+import BlogForm from "./BlogForm";
 
-import "./style.css";
+import classes from "./Blog.module.css";
 
 const Blog = () => {
-	let [items, setItems] = useState([]);
+	let [posts, setPost] = useState([]);
 	let [loading, setLoading] = useState(false);
 
 	const getPosts = async () => {
 		setLoading(true);
-		let response = await axios.get("https://jsonplaceholder.typicode.com/posts")
-		setItems(response.data);
+		let result = await PostService.getAll();
+		setPost(result);
 		setLoading(false);
+	}
+
+	const createPost = (newItem) => {
+		setPost([...posts, newItem]);
+	}
+
+	const removePost = (key) => {
+		console.log(key)
+		setPost(posts.filter(el => el.id !== key));
 	}
 
 	useEffect(() => {
@@ -22,12 +32,11 @@ const Blog = () => {
 
 	return (
 		<>
-			<section className="blog">
+			<section className={classes.blog}>
 				<div className="wrapper">
+					<BlogForm create={createPost} />
 					<h2>Список постов:</h2>
-					{items.map(el => 
-						<PostItem item={el} key={el.id}/>
-					)}
+					<BlogPost remove={removePost} posts={posts}/>
 					{loading ? <p>Загрузка...</p> : null}
 				</div>
 			</section>

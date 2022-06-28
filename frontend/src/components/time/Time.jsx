@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
+import classes from "./Time.module.css"
 
 // Добавить 0 в начало, если меньше 10 секунд/минут
 const addZero = (a) => {
@@ -33,7 +33,7 @@ const Time = () => {
     }, 1000)
 
 	return (
-		<span>{time}</span>
+		<span className={classes.time}>{time}</span>
 	);
 }
 
