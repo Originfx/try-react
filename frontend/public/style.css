@@ -134,18 +134,6 @@ a:hover {
 /* /////////////////////////////////////////// */
 
 /* // EFFECTS //////////////////////////////// */
-@-webkit-keyframes borders {
-    10% {
-        border-color: rgba(120,255,214,0.5);
-    }
-    50% {
-        border-color: rgba(255,5,140,0.5);
-    }
-    80% {
-        border-color: rgba(122,105,255,0.5);
-    }
-}
-
 @keyframes borders {
     10% {
         border-color: rgba(120,255,214,0.5);
@@ -158,18 +146,6 @@ a:hover {
     }
 }
 
-@-webkit-keyframes mixing-cl {
-    10% {
-        color: var(--action);
-    }
-    50% {
-        color: var(--red);
-    }
-    80% {
-        color: var(--purple);
-    }
-}
-
 @keyframes mixing-cl {
     10% {
         color: var(--action);
@@ -179,18 +155,6 @@ a:hover {
     }
     80% {
         color: var(--purple);
-    }
-}
-
-@-webkit-keyframes mixing-bg {
-    10% {
-        background-color: var(--action);
-    }
-    50% {
-        background-color: var(--red);
-    }
-    80% {
-        background-color: var(--purple);
     }
 }
 

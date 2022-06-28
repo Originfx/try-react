@@ -1,15 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BlogPost = ({remove, posts}) => {
 	return (
 		<>
-			{posts.map((el,i) => 
-				<div className="post__item" key={el.id}>
-					<strong>{el.id}. {el.title}</strong>
-					<p>{el.body}</p>
-					<button onClick={() => remove(el.id)}>Удалить</button>
+			{posts.map((el,i) => (
+				<div className="blog__history" key={el.id}>
+					<Link to={`${el.id}`}>{el.id}. {el.title}</Link>
+					<button onClick={() => remove(el.id)}>–</button>
 				</div>
-			)}
+			))}
 		</>
 	);
 }

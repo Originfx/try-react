@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Source from '../components/Blog';
+import Source from '../components/Blog/BlogSingle';
 
-const Blog = () => {
+const BlogSingle = () => {
 	return (
 		<>
 			<section className="console">
 				<div className="wrapper">
 					<ul>
 						<li>Блог.</li>
-						<li>Персональный блог.</li>
-						<li><Link to="/">Выход</Link></li>
+						<li>Запись в блоге.</li>
+						<li><Link to="/blog">Выход</Link></li>
 					</ul>
 				</div>
 			</section>
@@ -20,4 +20,4 @@ const Blog = () => {
 	);
 }
 
-export default Blog;
+export default BlogSingle;

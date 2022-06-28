@@ -4,7 +4,7 @@ import PostService from "../../API/PostService";
 import BlogPost from "./BlogPost";
 import BlogForm from "./BlogForm";
 
-import classes from "./Blog.module.css";
+import  "./style.css";
 
 const Blog = () => {
 	let [posts, setPost] = useState([]);
@@ -22,7 +22,6 @@ const Blog = () => {
 	}
 
 	const removePost = (key) => {
-		console.log(key)
 		setPost(posts.filter(el => el.id !== key));
 	}
 
@@ -32,12 +31,13 @@ const Blog = () => {
 
 	return (
 		<>
-			<section className={classes.blog}>
+			<section className="blog">
 				<div className="wrapper">
 					<BlogForm create={createPost} />
-					<h2>Список постов:</h2>
+					<label>Список постов:</label>
 					<BlogPost remove={removePost} posts={posts}/>
 					{loading ? <p>Загрузка...</p> : null}
+					<button className="blog__clear">Очистить список</button>
 				</div>
 			</section>
 		</>

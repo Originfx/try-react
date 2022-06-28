@@ -12,19 +12,25 @@ const BlogPost = ({create}) => {
 
 	return (
 		<>
-			<input
-				value={post.title}
-				onChange={e => setPost({...post, title: e.target.value})}
-				type="text"
-				placeholder="Название" />
+			<div className="blog__title">
+				<input
+					value={post.title}
+					onChange={e => setPost({...post, title: e.target.value})}
+					type="text"
+					placeholder="Название" />
+			</div>
 
-			<input
-				value={post.body}
-				onChange={e => setPost({...post, body: e.target.value})}
-				type="text"
-				placeholder="Описание" />
+			<div className="blog__desc">
+				<input
+					value={post.body}
+					onChange={e => setPost({...post, body: e.target.value})}
+					type="text"
+					placeholder="Описание" />
+				<i
+					className="icon icon-go"
+					onClick={newPost} />
+			</div>
 
-			<button onClick={newPost}>Создать</button>
 		</>
 	);
 }

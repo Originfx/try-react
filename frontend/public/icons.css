@@ -39,6 +39,6 @@ i {
 }
 
 .icon-copy {
-	-webkit-mask-image: url(/assets/img/icon/icon-copy.svg);
-	mask-image: url(/assets/img/icon/icon-copy.svg);
+	-webkit-mask-image: url(./icon/icon-copy.svg);
+	mask-image: url(./icon/icon-copy.svg);
 }
