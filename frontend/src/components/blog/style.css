@@ -3,6 +3,12 @@
     margin: 20px 0;
 }
 
+.blog label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.875em;
+}
+
 .blog__title {
     display: flex;
     justify-content: space-between;
@@ -32,8 +38,9 @@
     transition: .5s;
 }
 
-.blog__desc input {
+.blog__desc textarea {
     width: 100%;
+    resize: none;
     color: var(--white);
     background-color: transparent;
     padding: 10px 20px 10px 0;
@@ -46,6 +53,7 @@
     min-width: 20px;
     background: var(--light);
     --size: inherit;
+    cursor: pointer;
 }
 
 .blog__desc i:hover {
@@ -53,13 +61,34 @@
     animation: 10s mixing-bg ease infinite;
 }
 
-.blog label {
-    display: block;
-    margin-bottom: 10px;
+.blog__filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
     font-size: 0.875em;
+    border: 2px solid rgba(255,255,255,0.1);
+    margin-bottom: 10px;
+    transition: .5s;
 }
 
-.blog__history {
+.blog__filter input {
+    width: 100%;
+    color: var(--white);
+    background-color: transparent;
+    padding: 10px 20px 10px 0;
+    margin: 10px 20px 10px 0;
+    border: none;
+    border-right: 2px solid rgba(255,255,255,0.1);
+}
+
+.blog__filter select {
+    color: var(--gray);
+    background-color: unset;
+    border: none;
+}
+
+.blog__list ul {
     display: flex;
     justify-content: space-between;
     gap: 20px;
@@ -69,11 +98,11 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.blog__history a {
+.blog__list a {
     line-height: 150%;
 }
 
-.blog__history button {
+.blog__list button {
     color: var(--white);
     font-weight: 600;
     font-size: 1em;

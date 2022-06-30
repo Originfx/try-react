@@ -4,12 +4,19 @@ import { Link } from "react-router-dom";
 const BlogPost = ({remove, posts}) => {
 	return (
 		<>
-			{posts.map((el,i) => (
-				<div className="blog__history" key={el.id}>
-					<Link to={`${el.id}`}>{el.id}. {el.title}</Link>
-					<button onClick={() => remove(el.id)}>–</button>
-				</div>
-			))}
+			<div className="blog__list">
+				{!posts.length && <p>Посты не найдены.</p>}
+				{posts.map((el,i) => (
+					<ul key={el.id}>
+						<li>
+							<Link to={`${el.id}`}>{el.id}. {el.title}</Link>
+						</li>
+						<li>
+							<button onClick={() => remove(el.id)}>–</button>
+						</li>
+					</ul>
+				))}
+			</div>
 		</>
 	);
 }

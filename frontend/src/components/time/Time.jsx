@@ -26,7 +26,7 @@ const Time = () => {
 
     useEffect(() => {
         setTime(timer());
-    }, [time])
+    }, [])
 
     setInterval(() => {
         setTime(timer());
