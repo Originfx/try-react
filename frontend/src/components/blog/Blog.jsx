@@ -25,6 +25,10 @@ const Blog = () => {
 		setPost(posts.filter(el => el.id !== key));
 	}
 
+	const removeAll = () => {
+		setPost([]);
+	}
+
 	useEffect(() => {
 		getPosts();
 	}, [])
@@ -37,7 +41,8 @@ const Blog = () => {
 					<label>Список постов:</label>
 					<BlogPost remove={removePost} posts={posts}/>
 					{loading ? <p>Загрузка...</p> : null}
-					<button className="blog__clear">Очистить список</button>
+					{!posts.length && <p>Посты не найдены.</p>}
+					<button className="blog__clear" onClick={removeAll}>Очистить список</button>
 				</div>
 			</section>
 		</>
