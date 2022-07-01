@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import PostService from "../../API/PostService";
 import BlogPost from "./BlogPost";
@@ -26,13 +26,20 @@ const Blog = () => {
 		setPost(posts.filter(el => el.id !== key));
 	}
 
+	let [filter, setFilter] = useState({search: "", sort: "id"});
+
+
+
 	const sortedPost = ({search, sort}) => {
 		let x = sort === 'id'
 			? [...posts].sort((a, b) => a[sort] - b[sort])
 			: [...posts].sort((a, b) => a[sort].localeCompare(b[sort]))
-			console.log(x)
-		setPost(x.filter(post => post.title.toLowerCase().includes(search.toLowerCase())))
+		setFilter({search: search, sort: x})
 	}
+
+	const memoPosts = useMemo(() => {
+		return posts.filter(post => post.title.toLowerCase().includes(filter.search.toLowerCase()))
+	}, [posts, filter])
 
 	const removeAll = () => {
 		setPost([]);
@@ -50,7 +57,7 @@ const Blog = () => {
 					<BlogForm create={createPost} />
 					<label>Список постов:</label>
 					<BlogFilter sort={sortedPost}/>
-					<BlogPost remove={removePost} posts={posts}/>
+					<BlogPost remove={removePost} posts={memoPosts}/>
 					{loading ? <p>Загрузка...</p> : null}
 					<button className="blog__clear" onClick={removeAll}>Очистить список</button>
 				</div>
