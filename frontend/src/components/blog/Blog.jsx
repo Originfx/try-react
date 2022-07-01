@@ -26,20 +26,25 @@ const Blog = () => {
 		setPost(posts.filter(el => el.id !== key));
 	}
 
-	let [filter, setFilter] = useState({search: "", sort: "id"});
-
-
+	let [filter, setFilter] = useState({search: "", sort: ""});
 
 	const sortedPost = ({search, sort}) => {
-		let x = sort === 'id'
-			? [...posts].sort((a, b) => a[sort] - b[sort])
-			: [...posts].sort((a, b) => a[sort].localeCompare(b[sort]))
-		setFilter({search: search, sort: x})
+		setFilter({search: search, sort: sort})
 	}
 
+	const memoFilter = useMemo(() => {
+		if (filter.sort) {
+			let x = filter.sort === 'id'
+			? [...posts].sort((a, b) => a[filter.sort] - b[filter.sort])
+			: [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
+			return x;
+		}
+		return posts;
+	}, [filter.sort, posts])
+
 	const memoPosts = useMemo(() => {
-		return posts.filter(post => post.title.toLowerCase().includes(filter.search.toLowerCase()))
-	}, [posts, filter])
+		return memoFilter.filter(post => post.title.toLowerCase().includes(filter.search.toLowerCase()))
+	}, [filter.search, memoFilter])
 
 	const removeAll = () => {
 		setPost([]);
@@ -55,7 +60,7 @@ const Blog = () => {
 				<div className="wrapper">
 					<label>Новый пост</label>
 					<BlogForm create={createPost} />
-					<label>Список постов:</label>
+					<label>Список постов</label>
 					<BlogFilter sort={sortedPost}/>
 					<BlogPost remove={removePost} posts={memoPosts}/>
 					{loading ? <p>Загрузка...</p> : null}

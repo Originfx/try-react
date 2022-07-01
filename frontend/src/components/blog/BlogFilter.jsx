@@ -4,7 +4,7 @@ const BlogFilter = ({sort}) => {
 	let [filter, setFilter] = useState({search: "", sort: "id"});
 
 	useEffect(() => {
-		sort({...filter}); 
+		sort(filter); 
 	}, [filter]) // eslint-disable-line
 
 	return (
