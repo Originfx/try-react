@@ -5,18 +5,19 @@ import BlogPost from "./BlogPost";
 import BlogForm from "./BlogForm";
 import BlogFilter from "./BlogFilter"
 
+import { useFetching } from "../../hooks/useFetching";
+
 import  "./style.css";
+
 
 const Blog = () => {
 	let [posts, setPost] = useState([]);
-	let [loading, setLoading] = useState(false);
+	let [filter, setFilter] = useState({search: "", sort: ""});
 
-	const getPosts = async () => {
-		setLoading(true);
+	const [getPosts, isLoading] = useFetching( async () => {
 		let result = await PostService.getAll();
 		setPost(result);
-		setLoading(false);
-	}
+	})
 
 	const createPost = (newItem) => {
 		setPost([...posts, newItem]);
@@ -26,8 +27,6 @@ const Blog = () => {
 		setPost(posts.filter(el => el.id !== key));
 	}
 
-	let [filter, setFilter] = useState({search: "", sort: ""});
-
 	const sortedPost = ({search, sort}) => {
 		setFilter({search: search, sort: sort})
 	}
@@ -35,8 +34,10 @@ const Blog = () => {
 	const memoFilter = useMemo(() => {
 		if (filter.sort) {
 			let x = filter.sort === 'id'
-			? [...posts].sort((a, b) => a[filter.sort] - b[filter.sort])
-			: [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
+				// Сортировать как number
+				? [...posts].sort((a, b) => a[filter.sort] - b[filter.sort])
+				// Сортировать как string
+				: [...posts].sort((a, b) => a[filter.sort].localeCompare(b[filter.sort]))
 			return x;
 		}
 		return posts;
@@ -52,7 +53,7 @@ const Blog = () => {
 
 	useEffect(() => {
 		getPosts();
-	}, [])
+	}, []) // eslint-disable-line
 
 	return (
 		<>
@@ -63,7 +64,7 @@ const Blog = () => {
 					<label>Список постов</label>
 					<BlogFilter sort={sortedPost}/>
 					<BlogPost remove={removePost} posts={memoPosts}/>
-					{loading ? <p>Загрузка...</p> : null}
+					{isLoading ? <p>Загрузка...</p> : null}
 					<button className="blog__clear" onClick={removeAll}>Очистить список</button>
 				</div>
 			</section>

@@ -1,8 +1,11 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
 import  "./style.css";
 
 const BlogSingle = () => {
+	let params = useParams();
+	console.log(params)
 	return (
 		<>
 			<section className="blog">
@@ -12,7 +15,7 @@ const BlogSingle = () => {
 						
 						<div className="blog__more-item">
 							<p>Полный адрес</p>
-							<span></span>
+							<span>{params.id}</span>
 						</div>
 						<div className="blog__more-item">
 							<p>Сокращенный вариант</p>
