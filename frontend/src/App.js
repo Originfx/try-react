@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {AuthContext} from "./context";
 import {BrowserRouter} from "react-router-dom";
 
@@ -9,6 +9,12 @@ import AppRouter from "./routes";
 
 const App = () => {
 	let [isAuth, setIsAuth] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem('auth')) {
+            setIsAuth(true)
+        }
+    }, [])
 
 	return (
 		<AuthContext.Provider value={{

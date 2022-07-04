@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import {AuthContext} from "../context";
 
 const Login = () => {
-
 	let {isAuth, setIsAuth} = useContext(AuthContext);
 
     const login = (e) => {
@@ -19,7 +17,6 @@ const Login = () => {
 					<ul>
 						<li>Авторизация.</li>
 						<li>Вход в систему.</li>
-						<li><Link to="/">На главную</Link></li>
 					</ul>
 				</div>
 			</section>
