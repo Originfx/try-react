@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Time from '../components/Time';
+import Time from '../../components/Time';
 
 const Panel = () => {
 	return (

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import {AuthContext} from "../context";
+import {AuthContext} from "../../context";
 
 const Footer = () => {
 	let {isAuth, setIsAuth} = useContext(AuthContext);

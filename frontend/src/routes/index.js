@@ -1,14 +1,17 @@
 import React, { useContext } from "react";
-import {AuthContext} from "../context";
-import {Routes, Route, Navigate} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import Login from "../pages/Login";
-import Home from "../pages/Home";
-import Blog from "../pages/Blog";
-import BlogSingle from "../pages/BlogSingle"
-import Typer from "../pages/Typer";
-import Keylayout from "../pages/Keylayout";
-import NotFound from "../pages/404";
+import {AuthContext} from "../context";
+
+import TemplateDeafult from "../templates/Default";
+
+import Login from "../views/Login";
+import Homepage from "../views/Homepage";
+import Blog from "../views/Blog";
+import BlogSingle from "../views/BlogSingle"
+import Typer from "../views/Typer";
+import Keylayout from "../views/Keylayout";
+import NotFound from "../views/404";
 
 const AppRouter = () => {
 	let {isAuth, isLoading} = useContext(AuthContext);
@@ -17,15 +20,17 @@ const AppRouter = () => {
 		isAuth
 			?
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route exact path="/blog" element={<Blog />} />
-				<Route exact path="/blog/:id" element={<BlogSingle />} />
-				<Route path="/typer" element={<Typer />} />
-				<Route path="/keylayout" element={<Keylayout />} />
+				<Route path="/" element={<TemplateDeafult />}>
+					<Route index element={<Homepage />} />
+					<Route path="blog" element={<Blog />} />
+					<Route path="/blog/:id" element={<BlogSingle />} />
+					<Route path="typer" element={<Typer />} />
+					<Route path="keylayout" element={<Keylayout />} />
 
-				<Route path="/login" element={<Navigate to="/" replace />} />
-
-				<Route path="*" element={<NotFound />} />
+					<Route path="/login" element={<Navigate to="/" replace />} />
+					
+					<Route path="*" element={<NotFound />} />
+				</Route>
 			</Routes>
 			:
 			<Routes>

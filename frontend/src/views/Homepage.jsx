@@ -13,7 +13,7 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section>
+			<section className="home">
 				<div className="wrapper">
 					<Link to="/blog">
 						<div className="tools">

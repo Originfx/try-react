@@ -8,7 +8,7 @@ const BlogSingle = () => {
 	console.log(params)
 	return (
 		<>
-			<section className="blog">
+			<section className="blog__single">
 				<div className="wrapper">
 					<div className="blog__more" method="post">
 						<textarea></textarea>

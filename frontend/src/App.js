@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from "react";
-import {AuthContext} from "./context";
-import {BrowserRouter} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 
-import Panel from "./partials/Panel";
-import Footer from "./partials/Footer";
+import {AuthContext} from "./context/index";
 
 import AppRouter from "./routes";
 
 const App = () => {
 	let [isAuth, setIsAuth] = useState(false);
 
-    useEffect(() => {
+	useEffect(() => {
         if (localStorage.getItem('auth')) {
             setIsAuth(true)
         }
@@ -22,11 +20,7 @@ const App = () => {
             setIsAuth
         }}>
 			<BrowserRouter>
-				<div className="app">
-					<Panel />
-					<AppRouter />
-					<Footer />
-				</div>
+				<AppRouter />
 			</BrowserRouter>
 		</AuthContext.Provider>
 	)
