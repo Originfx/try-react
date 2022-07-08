@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import Icons from "../Icons";
+
 const BlogPost = ({create}) => {
 
 	let [post, setPost] = useState({title: "", body: ""});
@@ -27,9 +29,7 @@ const BlogPost = ({create}) => {
 						onChange={e => setPost({...post, body: e.target.value})}
 						rows="10"
 						placeholder="Описание" />
-					<i
-						className="icon icon-go"
-						onClick={newPost} />
+					<Icons name="icon-go" onClick={newPost} />
 				</div>
 			</div>
 		</>

@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Icons from "../components/Icons";
+
 const NotFound = () => {
 	return (
 		<>
@@ -18,7 +20,7 @@ const NotFound = () => {
 					<Link to="/">
 						<div className="tools">
 							<div className="tools__icon">
-								<i className="icon icon-go"></i>
+								<Icons name="icon-go" />
 							</div>
 							<span>
 								<h3>Уходим отсюда</h3>

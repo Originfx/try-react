@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import Icons from "../components/Icons";
+
 const Home = () => {
 	return (
 		<>
@@ -18,7 +20,7 @@ const Home = () => {
 					<Link to="/blog">
 						<div className="tools">
 							<div className="tools__icon">
-								<i className='icon icon-list'></i>
+								<Icons name="icon-list" />
 							</div>
 							<span>
 								<h3>Blog</h3>
@@ -30,7 +32,7 @@ const Home = () => {
 					<Link to="/typer">
 						<div className="tools">
 							<div className="tools__icon">
-								<i className='icon icon-list'></i>
+								<Icons name="icon-list" />
 							</div>
 							<span>
 								<h3>Typing Game</h3>
@@ -42,7 +44,7 @@ const Home = () => {
 					<Link to="/keylayout">
 						<div className="tools">
 							<div className="tools__icon">
-								<i className='icon icon-list'></i>
+								<Icons name="icon-list" />
 							</div>
 							<span>
 								<h3>Смена раскладки</h3>

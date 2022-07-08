@@ -16,6 +16,10 @@ import NotFound from "../views/404";
 const AppRouter = () => {
 	let {isAuth, isLoading} = useContext(AuthContext);
 
+	if (isLoading) {
+		return "Страница загружается...";
+	}
+
 	return (
 		isAuth
 			?
@@ -23,19 +27,19 @@ const AppRouter = () => {
 				<Route path="/" element={<TemplateDeafult />}>
 					<Route index element={<Homepage />} />
 					<Route path="blog" element={<Blog />} />
-					<Route path="/blog/:id" element={<BlogSingle />} />
+					<Route path="blog/:id" element={<BlogSingle />} />
 					<Route path="typer" element={<Typer />} />
 					<Route path="keylayout" element={<Keylayout />} />
 
-					<Route path="/login" element={<Navigate to="/" replace />} />
-					
 					<Route path="*" element={<NotFound />} />
 				</Route>
 			</Routes>
 			:
 			<Routes>
-				<Route path="/login" element={<Login />} />
-				<Route path="*" element={<Navigate to="/login" replace />} />
+				<Route path="/" element={<TemplateDeafult />}>
+					<Route index element={<Login />} />
+					<Route path="*" element={<NotFound />} />
+				</Route>
 			</Routes>
 	)
 }

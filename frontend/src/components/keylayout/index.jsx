@@ -1,4 +1,7 @@
 import React from "react";
+
+import Icons from "../Icons";
+
 import "./style.css";
 
 function Keylayout () {
@@ -8,16 +11,16 @@ function Keylayout () {
                 <label>Ghbdtn - Привет</label>
                 <div className="keylayout__input">
                     <div className="keylayout__input-panel">
-                        <i className="icon icon-go"></i>
-                        <i className="icon icon-copy keylayCopy" target="inputEng"></i>
+                        <Icons name="icon-go" />
+                        <Icons name="icon-copy" target="inputEng" />
                     </div>
                     <textarea className="keylayEng" rows="10" required></textarea>
                 </div>
                 <label>Руддщ - Hello</label>
                 <div className="keylayout__input">
                     <div className="keylayout__input-panel">
-                        <i className="icon icon-go"></i>
-                        <i className="icon icon-copy keylayCopy" target="inputRus"></i>
+                        <Icons name="icon-go" />
+                        <Icons name="icon-copy" target="inputRus" />
                     </div>
                     <textarea className="keylayRus" rows="10" required></textarea>
                 </div>

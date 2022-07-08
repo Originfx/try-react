@@ -1,0 +1,44 @@
+i {
+	vertical-align: middle;
+}
+
+.icon {
+	position: relative;
+	--size     : 32px;
+	display    : inline-block;
+	width      : var(--size);
+	height     : var(--size);
+	background: #000;
+	-webkit-mask-size: contain;
+			mask-size  : contain;
+	-webkit-mask-position: center;
+			mask-position: center;
+	-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+}
+
+/* menu */
+.icon-reload {
+	-webkit-mask-image: url(./assets/icon-reload.svg);
+	mask-image: url(./assets/icon-reload.svg);
+}
+
+.icon-go {
+	-webkit-mask-image: url(./assets/icon-go.svg);
+	mask-image: url(./assets/icon-go.svg);
+}
+
+.icon-link {
+	-webkit-mask-image: url(./assets/icon-link.svg);
+	mask-image: url(./assets/icon-link.svg);
+}
+
+.icon-list {
+	-webkit-mask-image: url(./assets/icon-list.svg);
+	mask-image: url(./assets/icon-list.svg);
+}
+
+.icon-copy {
+	-webkit-mask-image: url(./assets/icon-copy.svg);
+	mask-image: url(./assets/icon-copy.svg);
+}

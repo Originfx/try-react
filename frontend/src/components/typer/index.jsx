@@ -1,4 +1,7 @@
 import React from "react";
+
+import Icons from "../Icons";
+
 import "./style.css";
 
 function Typer () {
@@ -7,9 +10,9 @@ function Typer () {
 			<div className="wrapper">
                 <div className="typer__word typerWord"></div>
                 <div className="typer__input">
-                    <i className="icon icon-go"></i>
+                    <Icons name="icon-go" />
                     <input type="text" className="typerInput" placeholder="Начните вводить" />
-                    <i className="icon icon-reload typerRestart"></i>
+                    <Icons name="icon-reload" />
                 </div>
                 <div className="typer__score">
                     <label>Слов: <span className="typerScore">0</span></label>
