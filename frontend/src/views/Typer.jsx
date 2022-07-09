@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Source from '../components/typer/';
+import Source from '../components/Typer';
 
 
 const Blog = () => {

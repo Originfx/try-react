@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Icons from "../Icons";
 
 import "./style.css";
 
 function Typer () {
+    let [words, setWords] = useState([]);
+    let [all, setAll] = useState(false);
+
+    const showWords = (e) => {
+        let x = e.target.value.replace(/[()«»—–.,~"`';:_-]/g, " ").trim().split(/\s+/);
+        setWords(e.target.value)
+        setAll([x])
+        console.log(all)
+    }
+
     return (
 		<section className="typer">
 			<div className="wrapper">
@@ -19,7 +29,11 @@ function Typer () {
                     <label><span className="typerTimer">00:00</span></label>
                     <label>Ошибок: <span className="typerAcc">0</span></label>
                 </div>
-                <textarea className="typerLibrary" rows="5" placeholder="Библиотека слов" maxLength="1000" required>Я видел такое, во что вы, люди, просто не поверите. Штурмовые корабли в огне на подступах к Ориону. Я смотрел, как Си-лучи мерцают во тьме близ врат Тангейзера. Все эти мгновения исчезнут во времени, как слёзы под дождём. Пора умирать.</textarea>
+                <textarea
+						value={words}
+						onChange={e => showWords(e)}
+						rows="5"
+						placeholder="Библиотека слов" />
                 <div className="typer__limit typerLimit">0/1000</div>
             </div>
         </section>
