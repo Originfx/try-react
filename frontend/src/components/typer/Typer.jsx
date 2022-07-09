@@ -1,24 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import Icons from "../Icons";
 
 import "./style.css";
 
 function Typer () {
-    let [words, setWords] = useState([]);
-    let [all, setAll] = useState(false);
+    let [area, setArea] = useState("Я видел такое, во что вы, люди, просто не поверите. Штурмовые корабли в огне на подступах к Ориону. Я смотрел, как Си-лучи мерцают во тьме близ врат Тангейзера. Все эти мгновения исчезнут во времени, как слёзы под дождём. Пора умирать.");
+    let [word, setWord] = useState("");
 
-    const showWords = (e) => {
-        let x = e.target.value.replace(/[()«»—–.,~"`';:_-]/g, " ").trim().split(/\s+/);
-        setWords(e.target.value)
-        setAll([x])
-        console.log(all)
+    const wordsQueue = useMemo(() => {
+        let x = area.replace(/[()«»—–.,~"`';:_-]/g, " ").trim().split(/\s+/);
+        return x == '' ? [] : x;
+    }, [area])
+
+    const wordsList = () => {
+        console.log(wordsQueue)
+        setWord(getWord())
     }
+
+    const getWord = () => {
+        let queue = wordsQueue;
+        let i = Math.floor(Math.random() * queue.length);
+        return queue[i];
+    }
+
+	useEffect(() => {
+		wordsList();
+	}, [area]) // eslint-disable-line
 
     return (
 		<section className="typer">
 			<div className="wrapper">
-                <div className="typer__word typerWord"></div>
+                <div className="typer__word typerWord">{word}</div>
                 <div className="typer__input">
                     <Icons name="icon-go" />
                     <input type="text" className="typerInput" placeholder="Начните вводить" />
@@ -30,11 +43,12 @@ function Typer () {
                     <label>Ошибок: <span className="typerAcc">0</span></label>
                 </div>
                 <textarea
-						value={words}
-						onChange={e => showWords(e)}
+						value={area}
+						onInput={e => setArea(e.target.value)}
 						rows="5"
+                        maxLength={1000}
 						placeholder="Библиотека слов" />
-                <div className="typer__limit typerLimit">0/1000</div>
+                <div className="typer__limit">{`${area.length} / 1000`}</div>
             </div>
         </section>
 	);
