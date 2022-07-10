@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import {AuthContext} from "../context";
 
+import Icons from "../components/Icons";
+
 const Login = () => {
 	let {setIsAuth} = useContext(AuthContext);
 
-    const login = (e) => {
-        (e).preventDefault();
+    const login = () => {
         setIsAuth(true);
         localStorage.setItem('auth', 'true');
     }
@@ -22,16 +23,15 @@ const Login = () => {
 			</section>
 			<section className="login">
 				<div className="wrapper">
-					<form onSubmit={login}>
-						<input
-							type="text"
-							placeholder="Название" />
-
-						<input
-							type="password"
-							placeholder="Пароль" />
-						<button>Войти</button>
-					</form>
+					<div className="tools" onClick={login}>
+						<div className="tools__icon">
+							<Icons name="icon-go" />
+						</div>
+						<span>
+							<h3>Войти</h3>
+							<p>Получить доступ</p>
+						</span>
+					</div>
 				</div>
 			</section>
 		</>

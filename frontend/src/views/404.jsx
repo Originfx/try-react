@@ -15,7 +15,7 @@ const NotFound = () => {
 					</ul>
 				</div>
 			</section>
-			<section>
+			<section className="error">
 				<div className="wrapper">
 					<Link to="/">
 						<div className="tools">

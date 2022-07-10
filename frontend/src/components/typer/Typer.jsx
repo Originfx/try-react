@@ -6,7 +6,8 @@ import "./style.css";
 
 function Typer () {
     let [area, setArea] = useState("Я видел такое, во что вы, люди, просто не поверите. Штурмовые корабли в огне на подступах к Ориону. Я смотрел, как Си-лучи мерцают во тьме близ врат Тангейзера. Все эти мгновения исчезнут во времени, как слёзы под дождём. Пора умирать.");
-    let [word, setWord] = useState("");
+    let [targetWord, setTargetWord] = useState("");
+    let [inputWord, setInputWord] = useState("");
 
     const wordsQueue = useMemo(() => {
         let x = area.replace(/[()«»—–.,~"`';:_-]/g, " ").trim().split(/\s+/);
@@ -14,14 +15,24 @@ function Typer () {
     }, [area])
 
     const wordsList = () => {
-        console.log(wordsQueue)
-        setWord(getWord())
+        console.log(wordsQueue);
+        getWord();
     }
 
     const getWord = () => {
         let queue = wordsQueue;
         let i = Math.floor(Math.random() * queue.length);
-        return queue[i];
+        setTargetWord(queue[i]);
+    }
+
+    const wordsCompare = (e) => {
+        setInputWord(e.target.value);
+        e.target.value === targetWord
+            ? getWord()
+            : console.log(false)
+        e.target.value.slice(-1) != targetWord[e.target.value.length - 1]
+            ? console.log('bad')
+            : console.log('good')
     }
 
 	useEffect(() => {
@@ -31,10 +42,14 @@ function Typer () {
     return (
 		<section className="typer">
 			<div className="wrapper">
-                <div className="typer__word typerWord">{word}</div>
+                <div className="typer__word">{targetWord}</div>
                 <div className="typer__input">
                     <Icons name="icon-go" />
-                    <input type="text" className="typerInput" placeholder="Начните вводить" />
+                    <input
+                        value={inputWord}
+                        onInput={wordsCompare}
+                        type="text"
+                        placeholder="Начните вводить" />
                     <Icons name="icon-reload" />
                 </div>
                 <div className="typer__score">
