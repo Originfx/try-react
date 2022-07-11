@@ -9,44 +9,50 @@ function Typer () {
     let [targetWord, setTargetWord] = useState("");
     let [inputWord, setInputWord] = useState("");
     let [wrongInput, setWrongInput] = useState(false);
-    let [good, setGood] = useState(0);
-    let [bad, setBad] = useState(0);
+    let [scoreGood, setScoreGood] = useState(0);
+    let [scoreBad, setScoreBad] = useState(0);
 
     const wordsQueue = useMemo(() => {
         let x = area.replace(/[()«»—–.,~"`';:_-]/g, " ").trim().split(/\s+/);
         return x == '' ? [] : x;
     }, [area])
 
-    const wordsList = () => {
-        console.log(wordsQueue);
+    const startTyper = () => {
         getWord();
     }
 
     const getWord = () => {
-        let queue = wordsQueue;
-        let i = Math.floor(Math.random() * queue.length);
-        setTargetWord(queue[i]);
+        let i = Math.floor(Math.random() * wordsQueue.length);
+        setTargetWord(wordsQueue[i]);
+        wordsQueue.splice(i, 1);
+        console.log(wordsQueue)
     }
 
     const wordsCompare = (e) => {
         setInputWord(e.target.value);
         if (e.target.value === targetWord) {
-            getWord();
             setInputWord("");
-            setGood(good + 1)
+            setScoreGood(scoreGood + 1);
+            getWord();
         }
         if (targetWord.includes(e.target.value, 0)) {
-            setWrongInput(false)
+            setWrongInput(false);
         } else {
             if (!wrongInput) {
                 setWrongInput(true);
-                setBad(bad + 1)
+                setScoreBad(scoreBad + 1);
             }
         }
     }
+    
+    const resetTyper = () => {
+        console.log('reset');
+        setScoreGood(0);
+        setScoreBad(0);
+    }
 
 	useEffect(() => {
-		wordsList();
+		getWord();
 	}, [area]) // eslint-disable-line
 
     return (
@@ -60,12 +66,12 @@ function Typer () {
                         onInput={wordsCompare}
                         type="text"
                         placeholder="Начните вводить" />
-                    <Icons name="icon-reload" />
+                    <Icons name="icon-reload" onClick={resetTyper} />
                 </div>
                 <div className="typer__score">
-                    <label>Слов: {good}</label>
+                    <label>Слов: {scoreGood}</label>
                     <label><span className="typerTimer">00:00</span></label>
-                    <label>Ошибок: {bad}</label>
+                    <label>Ошибок: {scoreBad}</label>
                 </div>
                 <textarea
 						value={area}
