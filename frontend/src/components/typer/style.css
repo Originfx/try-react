@@ -30,7 +30,13 @@
     --size: inherit;
 }
 
-.typer input {
+.typer__input i:last-child:hover {
+    -webkit-animation: 10s mixing-bg ease infinite;
+    animation: 10s mixing-bg ease infinite;
+    cursor: pointer;
+}
+
+.typer__input input {
     text-align: center;
     width: 100%;
     color: var(--white);
