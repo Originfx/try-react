@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Импорт ключевого компонента страницы
-import Source from '../components/keylayout/';
+import Source from '../components/Keylayout/';
 
 const Keylayout = () => {
 	return (

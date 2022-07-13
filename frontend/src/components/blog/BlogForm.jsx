@@ -34,7 +34,9 @@ const BlogPost = ({create}) => {
 						onChange={e => setPost({...post, body: e.target.value})}
 						rows="10"
 						placeholder="Описание" />
-					<Icons name="icon-go" onClick={newPost} />
+                    <div className="blog__desc-panel">
+						<Icons name="icon-go" onClick={newPost} />
+                    </div>
 				</div>
 			</div>
 		</>
