@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Импорт компонента - Иконки
 import Icons from "../components/Icons";
 
 const Home = () => {

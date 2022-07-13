@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
+// Импорт стилей компонента
 import  "./style.css";
 
 const BlogSingle = () => {
+	 // Хук - Получение параметров из адресной строки
 	let params = useParams();
-	console.log(params)
+	
 	return (
 		<>
 			<section className="blog__single">

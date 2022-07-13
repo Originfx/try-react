@@ -1,5 +1,6 @@
 import React from "react";
 
+// Импорт стилей компонента
 import  "./style.css";
 
 const Icons = ({name, onClick}) => {

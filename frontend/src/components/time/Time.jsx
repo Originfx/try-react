@@ -1,35 +1,47 @@
 import React, { useEffect, useState } from "react";
+
+// Импорт стилей компонента
 import classes from "./Time.module.css"
 
-// Добавить 0 в начало, если меньше 10 секунд/минут
-const addZero = (a) => {
-    return (a < 10 ? '0' : '') + a;
-}
-
-// Отобразить время
-const timer = () => {
-    let currentTime = new Date();
-    let hours = currentTime.getUTCHours() + 3;
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    let minutes = addZero( currentTime.getUTCMinutes() );
-    let seconds = addZero( currentTime.getUTCSeconds() );
-
-    let ampm = hours > 12 ? 'AM' : 'PM';
-
-    // Обновить время
-    return addZero(hours) + ":" + minutes + ":" + seconds + " " + ampm;
-}
-
 const Time = () => {
+    // Время
     let [time, setTime] = useState(0);
 
+    // Добавить 0 в начало
+    const addZero = (a) => {
+        // Если меньше 10 секунд/минут
+        return (a < 10 ? '0' : '') + a;
+    }
+
+    // Получить значения даты
+    const dateValues = () => {
+        // Получить текущую дату
+        let currentTime = new Date();
+        // Получить часы из текущей даты
+        let hours = currentTime.getUTCHours() + 3;
+        // Перевод часов в 12-ти часовой формат
+        hours = hours % 12;
+        hours = hours ? hours : 12;
+        // Получить минуты из текущей даты
+        let minutes = addZero( currentTime.getUTCMinutes() );
+        // Получить секунды из текущей даты
+        let seconds = addZero( currentTime.getUTCSeconds() );
+        // Определить приписку 12 часового формата времени
+        let ampm = hours > 12 ? 'AM' : 'PM';
+        // Собрать и вернуть время
+        return addZero(hours) + ":" + minutes + ":" + seconds + " " + ampm;
+    }
+
+    // Хук эффекта - Один раз
     useEffect(() => {
-        setTime(timer());
+        // Получить время
+        setTime(dateValues());
     }, [])
 
+    // Запустить интервал
     setInterval(() => {
-        setTime(timer());
+        // Получить время
+        setTime(dateValues());
     }, 1000)
 
 	return (

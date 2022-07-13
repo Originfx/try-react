@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Импорт ключевого компонента страницы
 import Source from '../components/Blog/BlogSingle';
 
 const BlogSingle = () => {

@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 
+// Импорт компонента - Иконки
 import Icons from "../Icons";
 
 const BlogPost = ({create}) => {
-
+	// Данные для создания поста
 	let [post, setPost] = useState({title: "", body: ""});
 
+	// Создать пост
 	const newPost = (e) => {
+		// Отлючить действие по умолчанию
 		e.preventDefault();
+		// Функция обратного вызова
 		create({...post, id: Date.now()})
+		// Сбросить данные создания поста
 		setPost({title: "", body: ""});
 	}
 

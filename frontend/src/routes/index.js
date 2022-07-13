@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 
+// Импорт контекста
 import {AuthContext} from "../context";
 
+// Импорт стандартного шаблона
 import TemplateDeafult from "../templates/Default";
 
+// Импорт отдельных страниц
 import Login from "../views/Login";
 import Homepage from "../views/Homepage";
 import Blog from "../views/Blog";
@@ -14,9 +17,11 @@ import Keylayout from "../views/Keylayout";
 import NotFound from "../views/404";
 
 const AppRouter = () => {
-	let {isAuth, isLoading} = useContext(AuthContext);
+	// Обмен контекстом
+	let {isAuth, appLoading} = useContext(AuthContext);
 
-	if (isLoading) {
+	// Если приложение загружается
+	if (appLoading) {
 		return "Страница загружается...";
 	}
 

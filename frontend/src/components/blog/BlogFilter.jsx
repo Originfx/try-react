@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 const BlogFilter = ({sort}) => {
+	// Данные фильтрации
 	let [filter, setFilter] = useState({search: "", sort: "id"});
 
+	// Хук эффекта - Изменение данных фильтра
 	useEffect(() => {
+		// Функция обратного вызова
 		sort(filter); 
 	}, [filter]) // eslint-disable-line
 
