@@ -184,18 +184,20 @@
     cursor: text;
 }
 
-.blog__more input {
+.blog__more a {
+    display: block;
     width: 100%;
     color: var(--light);
     font-size: 0.875em;
     font-weight: 600;
+    text-align: center;
     padding: 15px;
     background-color: rgba(255,255,255,0.1);
     border: none;
     cursor: pointer;
 }
 
-.blog__more input:hover {
+.blog__more a:hover {
     -webkit-animation: 10s mixing-bg ease infinite;
             animation: 10s mixing-bg ease infinite;
 }

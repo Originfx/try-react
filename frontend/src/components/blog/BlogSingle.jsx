@@ -1,38 +1,20 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
-// Импорт стилей компонента
-import  "./style.css";
+import { Link, useParams } from "react-router-dom";
 
 const BlogSingle = () => {
-	 // Хук - Получение параметров из адресной строки
+	// Хук - Получение параметров из адресной строки
 	let params = useParams();
-	
+
 	return (
 		<>
-			<section className="blog__single">
+			<section className="blog">
 				<div className="wrapper">
 					<div className="blog__more" method="post">
-						<textarea></textarea>
-						
-						<div className="blog__more-item">
-							<p>Полный адрес</p>
-							<span>{params.id}</span>
-						</div>
-						<div className="blog__more-item">
-							<p>Сокращенный вариант</p>
-							<span></span>
-						</div>
-						<div className="blog__more-item">
-							<p>Переходы</p>
-							<span></span>
-						</div>
-						<div className="blog__more-item">
-							<p>До удаления</p>
-							<span></span>
-						</div>
-						<input type="submit" name="delete-link" value="Удалить ссылку" />
-
+						<textarea
+							value={`Post ID: ${params.id}`}
+							onInput={e => e.preventDefault}
+							disabled />
+						<Link to={`/blog/${+params.id + 1}`}>Следующий пост</Link>
 					</div>
 				</div>
 			</section>

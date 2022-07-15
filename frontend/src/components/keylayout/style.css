@@ -37,8 +37,10 @@
     --size: 20px;
 }
 
-.keylayout__input-panel i:last-child {
-    --size: 23px;
+.keylayout__input-panel i:hover {
+    -webkit-animation: 10s mixing-bg ease infinite;
+    animation: 10s mixing-bg ease infinite;
+    cursor: pointer;
 }
 
 .keylayout__input textarea {
@@ -58,11 +60,6 @@
     background-color: var(--blue);
     color: var(--action);
     text-shadow: 0 0 10px rgba(120, 255, 214, 0.5);
-}
-
-.keylayCopy:hover {
-    cursor: pointer;
-    -webkit-animation: 10s mixing-bg ease infinite;
 }
 
 /* /////////////////////////////////////////// */
